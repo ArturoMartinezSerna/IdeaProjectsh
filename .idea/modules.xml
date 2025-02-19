@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bucles/Bucles.iml" filepath="$PROJECT_DIR$/Bucles/Bucles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Condicionales/Condicionales.iml" filepath="$PROJECT_DIR$/Condicionales/Condicionales.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HolaMundo2/HolaMundo2.iml" filepath="$PROJECT_DIR$/HolaMundo2/HolaMundo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/IdeaProjectsh.iml" filepath="$PROJECT_DIR$/.idea/IdeaProjectsh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IntentodeTests/IntentodeTests.iml" filepath="$PROJECT_DIR$/IntentodeTests/IntentodeTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Notas/Notas.iml" filepath="$PROJECT_DIR$/Notas/Notas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calculaAreaCirculo/calculaAreaCirculo.iml" filepath="$PROJECT_DIR$/calculaAreaCirculo/calculaAreaCirculo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hola mundo/hola mundo.iml" filepath="$PROJECT_DIR$/hola mundo/hola mundo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operadores/operadores.iml" filepath="$PROJECT_DIR$/operadores/operadores.iml" />
+    </modules>
+  </component>
+</project>

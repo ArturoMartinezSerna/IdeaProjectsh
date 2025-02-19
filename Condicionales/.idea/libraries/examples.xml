@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="examples">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Desktop/Baha/examples" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$USER_HOME$/Desktop/Baha/examples/net/mindview/util" />
+    </excluded>
+  </library>
+</component>
