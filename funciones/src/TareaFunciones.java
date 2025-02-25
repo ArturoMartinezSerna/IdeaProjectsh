@@ -113,7 +113,7 @@ public class TareaFunciones {
     private static void convertirMoneda() {
         double dolares;
         boolean esDolarCanadiense;
-        Object mensaje = ["Canadiense", "Americano"];
+        Object mensaje[] = {"Canadiense", "Americano"};
         //esDolarCanadiense = JOptionPane.showOptionDialog(null, mensaje, ) == 0 ? true : false;
     }
 
