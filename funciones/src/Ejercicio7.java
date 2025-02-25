@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.util.Scanner;
 
 public class Ejercicio7 {
 
@@ -14,38 +13,42 @@ public class Ejercicio7 {
     public static void main(String[] args) {
 
         ejecutaCalculadora();
-
     }
 
     private static void ejecutaCalculadora() {
-
         int opcion;
-        char operacion;
+        char operador;
         double resultado;
         double numero1, numero2;
 
         do {
             opcion = mostrarMenu();
+
             if(opcion != 0) {
-                operacion = getOperador(opcion);
+                // Calculamos operador segun la opcion elegida
+                operador = calculaOperador(opcion);
+
+                // Pedimos los operandos
                 numero1 = pideIntJOption("Introduzca el primer número de la operación");
                 numero2 = pideIntJOption("Introduzca el segundo número de la operación");
 
-                resultado = operacion(numero1, operacion, numero2);
+                // Calculamos y mostramos el resultado
+                resultado = operacion(numero1, operador, numero2);
                 JOptionPane.showMessageDialog(null, "El resultado es: " + resultado);
             }
         } while(opcion != 0);
-
+        // Mostramos una despedida
         JOptionPane.showMessageDialog(null, "Gracias por utilizar el programa");
     }
 
         private static int mostrarMenu() {
+            final int OPCION_MINIMA = 0;
+            final int OPCION_MAXIMA = 4;
             final String menu = "Ingrese una opcion: ->\n1 -> Sumar\n2 -> Restar\n3 -> Multiplicar\n4 -> Dividir\n0 -> Salir";
 
-            return pideIntJOption(menu, 0, 4);
+            return pideIntJOption(menu, OPCION_MINIMA, OPCION_MAXIMA);
         }
             private static int pideIntJOption(String peticion, int min, int max) {
-
                 int numero;
                 boolean centinela;
                 do {
@@ -87,7 +90,7 @@ public class Ejercicio7 {
                 return numero;
             }
 
-        private static char getOperador(int opcion) {
+        private static char calculaOperador(int opcion) {
             switch (opcion) {
                 case 1: return '+';
                 case 2: return '-';
@@ -114,10 +117,4 @@ public class Ejercicio7 {
             }
             return resultado;
         }
-
-
-
-
-
-
 }
