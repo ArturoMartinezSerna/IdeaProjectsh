@@ -9,6 +9,7 @@
  */
 
 import javax.swing.*;
+import java.util.Arrays;
 
 public class RepasoClase {
     public static void main(String[] args) {
@@ -18,6 +19,7 @@ public class RepasoClase {
          * nombres = solicitarNombres();
          * mostrarNombres(nombres);
          */
+        mostrarToString(solicitarNombres());
         while(condicion())
             System.out.println("Dentro del while");
         System.out.println("Fuera del while");
@@ -48,5 +50,11 @@ public class RepasoClase {
         boolean resultado = Math.random() < 0.99;
         System.out.print(resultado + ", ");
         return resultado;
+    }
+
+    // Hay un metodo que muestra todos los elementos del array
+    static void mostrarToString(String[] nombres) {
+        // JOptionPane.showMessageDialog(null, nombres);
+        JOptionPane.showMessageDialog(null, Arrays.toString(nombres));
     }
 }
