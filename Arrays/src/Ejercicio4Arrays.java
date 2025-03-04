@@ -31,12 +31,26 @@ public class Ejercicio4Arrays {
     static int[] combinacionGanadora() {
         int[] numeros = new int[6];
         for(int i = 0; i < numeros.length; i++){
-            numeros[i] = (int)(Math.random()*50);
+            int numero = (int)(Math.random() * 49) + 1;
+            // Ingresar el nuevo random solo si no esta ya en la tabla
+            if(estaEnTabla(numeros, numero)){
+                i--;
+            }
+            else {
+                numeros[i] = numero;
+            }
         }
         // Ordenamos la tabla para hacer la busqueda con binarySearch()
         Arrays.sort(numeros);
         return numeros;
     }
+        private static boolean estaEnTabla(int[] numeros, int numero){
+            for(int i = 0; i < numeros.length; i++){
+                if(numeros[i] == numero)
+                    return true;
+            }
+            return false;
+        }
 
     static int[] apuesta() {
         boolean centinela;
