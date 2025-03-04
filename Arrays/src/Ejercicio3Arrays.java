@@ -12,6 +12,7 @@ public class Ejercicio3Arrays {
     public static void main(String[] args) {
         int[] array = invierteArray(solicitaArray());
         imprimirArray(array);
+        ordenarTabla(array);
     }
 
     // 1.- Preguntar cuantos numeros quiero introducir. Devuelve int
@@ -61,5 +62,13 @@ public class Ejercicio3Arrays {
 
     private static void imprimirArray(int[] array) {
         JOptionPane.showMessageDialog(null, Arrays.toString(array));
+    }
+
+    static void ordenarTabla(int[] array) {
+        //Array.sort(nombreTabla)
+        Arrays.sort(array);
+        for(int n : array) { // Bucle forEach en java
+            System.out.println(n);
+        }
     }
 }
