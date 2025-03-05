@@ -5,18 +5,20 @@ public class InsertarTablaOrdenada {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int indice = 0;
+        int indice;
         int numeroInsertar;
-        int[] numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] numeros = {-2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int[] numerosTemp = new int[numeros.length + 1];
 
         Arrays.sort(numeros);
 
         System.out.println("Introduce un número a insertar en la tabla");
         numeroInsertar = sc.nextInt();
+
         indice = Arrays.binarySearch(numeros, numeroInsertar);
+        System.out.println("INDICE: " + indice);
         // Buscamos ese numero insertado con binarySearch()
-        if(indice < 0) { // Si no existe
+        if(indice < 0) { // Busca el indice, y da la posicion. NO la posicion del array, sino el indice de longitud
             indice =-Arrays.binarySearch(numeros, numeroInsertar) - 1;
         }
         System.out.println("Indice: " + indice);
