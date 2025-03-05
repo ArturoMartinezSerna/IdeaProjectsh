@@ -11,18 +11,27 @@ public class InsertarTablaOrdenada {
         int[] numerosTemp = new int[numeros.length + 1];
 
         Arrays.sort(numeros);
-        numeroInsertar = sc.nextInt();
+
         System.out.println("Introduce un número a insertar en la tabla");
+        numeroInsertar = sc.nextInt();
+        indice = Arrays.binarySearch(numeros, numeroInsertar);
         // Buscamos ese numero insertado con binarySearch()
-        if(Arrays.binarySearch(numeros, numeroInsertar) < 0) { // Si no existe
+        if(indice < 0) { // Si no existe
             indice =-Arrays.binarySearch(numeros, numeroInsertar) - 1;
         }
-
-        System.out.println(indice);
-        // Esto no funciona para arrays que permitan repetir sus miembros
+        System.out.println("Indice: " + indice);
+        System.out.println("Tabla temporal creada: " + Arrays.toString(numerosTemp));
 
         System.arraycopy(numeros, 0, numerosTemp, 0, indice);
-        System.out.println(Arrays.toString(numerosTemp));
+        System.out.println("Tabla copiando el primer tramo: -> " + Arrays.toString(numerosTemp));
+        // Insertamos el nuevo numero en el hueco
+        numerosTemp[indice] = numeroInsertar;
+        System.out.println("Tabla insertando el nuevo numero: " + Arrays.toString(numerosTemp));
+        // Copiamos los elementos desplazados tras el hueco
+        System.arraycopy(numeros, indice, numerosTemp, indice+1, numeros.length - indice);
+        // Copiamos a la tabla original
+        numeros = numerosTemp;
+        System.out.println("Tabla final con el segundo tramo: " + Arrays.toString(numeros));
     }
 
 }
