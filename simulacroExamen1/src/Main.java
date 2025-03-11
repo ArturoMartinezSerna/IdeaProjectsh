@@ -10,16 +10,19 @@
  * la cantidad de impresoras a comprar (puede comprar más de una a la vez)
  * y puede también comprar diferentes.
  *
+ * fecha, nºfactura, iva
+ *
  */
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 
 public class Main {
 
     public static void main(String[] args) {
         int opcion;
-        double total = 0.0;
+        double total = 0.00;
         // Repite el menú hasta que se pulse la opción 4
         do {
             // Mostramos el menú principal, y recogemos la opción seleccionada
@@ -102,11 +105,13 @@ public class Main {
     private static void mostrarDespedida(double total) {
         // Crea un patrón de formato de 2 decimales y un símbolo del € después
         DecimalFormat df = new DecimalFormat("0.00€");
-
+        LocalDate fecha = LocalDate.now();
+        int numeroFactura = (int)(Math.random() * 1000) + 1;
         // Muestra por pantalla la despedida
         JOptionPane.showMessageDialog(null, "***** Gracias por utiizar nuestro servicio! *****\n\n...Creando factura...");
 
         // Muestra por pantalla la factura
-        JOptionPane.showMessageDialog(null, "El precio total de todos sus artículos asciende a: " + df.format(total));
+        JOptionPane.showMessageDialog(null, "Fecha: " + fecha + "\nEl precio total de todos sus artículos asciende a: " + df.format(total)
+        + "\n+21% IVA -> " + total*21/100 + "\nTotal: " + df.format(total*1.21));
     }
 }
