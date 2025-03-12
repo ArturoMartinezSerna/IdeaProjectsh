@@ -72,6 +72,7 @@ public class Main {
             case "02": precio = 29.99;
             break;
             case "03": precio = 49.95;
+            break;
             default: precio = 0;
         }
 
