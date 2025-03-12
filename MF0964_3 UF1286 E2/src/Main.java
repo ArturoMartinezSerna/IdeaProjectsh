@@ -17,8 +17,7 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        int opcion;
-        int opcionAceite;
+        int opcion, opcionAceite; // variables que recogen los valores de los menus
         double totalFactura = 0;
         do {
             opcion = muestraMenuPrincipal();
