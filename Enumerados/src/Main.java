@@ -1,14 +1,11 @@
 import java.util.Scanner;
 
 public class Main {
-    public Main() {
-    }
-
     public static void main(String[] args) {
         Cliente c = new Cliente("Paco", Cliente.Sexo.HOMBRE);
         System.out.println(c.toString());
         Cliente c2 = new Cliente("Maria", Cliente.Sexo.valueOf("MUJER"));
-        System.out.println(c2.toString());
+        System.out.println(c2);
 
         System.out.println("Indique la talla: MINI, MEDIANA, GRANDE, MUYGRANDE");
         String talla = new Scanner(System.in).nextLine().toUpperCase();
