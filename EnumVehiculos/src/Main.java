@@ -18,6 +18,7 @@ public class Main {
         System.out.println("\n\nVehiculo bmw: \n" + bmw);
         System.out.println("\n\nVehiculo fordFocus: \n" + fordFocus);
         System.out.println("\n\nVehiculo kia: \n" + kia);
+        System.out.println("");
     }
 
     // En el constructor, podemos poner un enum de varios tipos distintos
