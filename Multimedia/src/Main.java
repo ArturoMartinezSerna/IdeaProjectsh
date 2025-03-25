@@ -44,7 +44,6 @@ public class Main {
                 case 8:
                     System.out.println("En case 8");
                     break;
-
             }
 
         }
