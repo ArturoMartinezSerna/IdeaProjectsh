@@ -54,4 +54,19 @@ public class Persona {
                 "\nedad=" + edad +
                 "\nsexo=" + sexo;
     }
+
+    public boolean equals2(Object obj) {
+        Persona p1 = (Persona) obj;
+        if(!p1.getNombre().equals(nombre))
+            return false;
+        if(!p1.getApellidos().equals(apellidos))
+            return false;
+        return true;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Persona p1 = (Persona) obj;
+        return p1.getEdad() == edad;
+    }
 }
