@@ -39,15 +39,20 @@ public class Usuarios {
 
     public static String pideDni() {
         String dni;
-        boolean repetir;
+        boolean errorFormato;
+        boolean errorLetraInvalida;
 
         do {
             dni = JOptionPane.showInputDialog(null, "Introduce el dni del usuario");
-            repetir = !Util.isFormatoDni(dni);
-            if(repetir) {
+            errorFormato = !Util.isFormatoDni(dni);
+            errorLetraInvalida = !Util.isLetraDni(dni);
+            System.out.println(errorLetraInvalida);
+            if(errorFormato) {
                 JOptionPane.showMessageDialog(null, "El dni debe tener 8 numeros y una letra");
+            } else if(errorLetraInvalida) {
+                JOptionPane.showMessageDialog(null, "La letra " + dni.toUpperCase().charAt(dni.length() - 1) + " no es valida para el numero " + dni.substring(0, dni.length() - 1));
             }
-        } while(repetir);
+        } while(errorFormato || errorLetraInvalida);
         return dni;
     }
 
@@ -89,7 +94,5 @@ public class Usuarios {
             mensaje = this.usuarios.get(i).toString() + "\n";
             JOptionPane.showMessageDialog(null, mensaje);
         }
-
-
     }
 }

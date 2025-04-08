@@ -31,8 +31,18 @@ public class Util {
         }
         if(!Character.isLetter(dni.charAt(dni.length() - 1)))
             return false;
+
         return true;
     }
+
+    public static boolean isLetraDni(String dni) {
+        String letrasValidas = "TRWAGMYFPDXBNJZSQVHLCKE";
+        char letra = dni.charAt(dni.length() - 1);
+        int numeroDni = Integer.parseInt(dni.substring(0, dni.length() - 1));
+
+        return letrasValidas.charAt(numeroDni % 23) == letra;
+    }
+
 
     public static boolean isFormatoMovil(String movil) {
         for(int i = 0; i < movil.length(); i++) {
