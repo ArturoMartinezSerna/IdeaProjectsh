@@ -96,5 +96,20 @@ public class Main {
         System.out.println(hora2 + ":" + minuto2 + ":" + segundo2);
         LocalDateTime hoy3 = LocalDateTime.now();
         System.out.println(hoy2.getDayOfWeek());
+
+        // Hay casos que se requiere detener el tiempo en la ejecucion de un programa...
+
+        System.out.println("Hola mundo!");
+        duerme();
+        System.out.println("Hola de nuevo mundo!");
+
+    }
+
+    private static void duerme() {
+        try {
+            Thread.sleep(10000);
+        } catch (Exception e) {
+            System.out.println("Error en el servidor");
+        }
     }
 }

@@ -1,3 +1,8 @@
+import socios.OrdenarPorFecha;
+import socios.OrdenarPorId;
+import socios.OrdenarPorNombre;
+import socios.Socio;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -78,6 +83,7 @@ public class Main {
         mostrarAlumnos(alumnos2);
         System.out.println("La lista1 sigue desordenada");
         mostrarAlumnos(alumnos);
+
 
     }
 
