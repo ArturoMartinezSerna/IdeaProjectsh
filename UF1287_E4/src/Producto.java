@@ -1,3 +1,6 @@
+/** Este enum contiene los productos que puede haber en nuestro menú.
+ * Los valores MENU1, MENU2... MENU5 se sustituirán en el futuro por la comida o bebida de nuestro restaurante.
+ * */
 public enum Producto {
     MENU1, MENU2, MENU3, MENU4, MENU5;
 

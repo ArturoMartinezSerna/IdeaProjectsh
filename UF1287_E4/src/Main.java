@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.text.DecimalFormat;
-
 //TIP Diseñar en Java con POO en donde el Camarero de un Bar pueda  tomar notas de los Menús que se sirven. Tenemos el MENU1 MENU2 MENU3 MENU4 MENU5
 //
 //El camarero en el pedido indicará :
@@ -20,41 +18,51 @@ import java.text.DecimalFormat;
 //1 punto documentación
 public class Main {
     public static void main(String[] args) {
-        int opcion;
+        int opcionPrincipal;
+        int opcionMesa;
         Pedido pedido;
 
-        while(mostrarMenuPrincipal() != 0) {
-            pedido = new Pedido(pedirNumeroMesa());
-            do {
-                opcion = mostrarMenuMesa();
+        // Mientras el trabajador no salga de la aplicación pulsando 0
+        do {
+            // Mostramos el menú principal y recogemos la opcion seleccionada
+            opcionPrincipal = mostrarMenuPrincipal();
+            if(opcionPrincipal == 1) { // Si la opcion es 1, el usuario esta atendiendo una nueva mesa
+                pedido = new Pedido(pedirNumeroMesa()); // Creamos el pedido de la mesa, y le pedimos el numero de mesa
+                do {
+                    opcionMesa = mostrarMenuMesa(); // Mostramos el menú de la mesa seleccionada
 
-                switch (opcion) {
-                    case 1: {
-                        Producto productoElegido = eligeEntreProductos();
-                        pedido.agregarProducto(productoElegido);
+                    // Dependiendo de la opción seleccionada
+                    switch (opcionMesa) {
+                        case 1: {
+                            Producto productoElegido = eligeEntreProductos(); // Mostramos la lista de productos y damos a elegir el que quiere añadir
+                            pedido.agregarProducto(productoElegido); // Lo añadimos al pedido
+                        }
+                        break;
+                        case 2: {
+                            Producto productoElegido = eligeEntreProductos(); // Mostramos la lista de productos y damos a elegir el que quiere eliminar
+                            pedido.eliminarProducto(productoElegido); // Lo borramos del pedido
+                        }
+                        break;
+                        case 3: {
+                            pedido.mostrarCuenta(); // Mostramos la cuenta del pedido, incluyendo todos los Productos del pedido
+                        }
+                        break;
+                        case 4: {
+                            double cuenta = pedido.mostrarCuenta(); // Mostramos la cuenta del pedido, incluyendo los productos, y lo guardamos en la variable cuenta.
+                            pagarCuenta(cuenta); // Procedemos a pagar la cuenta
+                            mandarPedidoACocina(); // Tras pagar la cuenta, mandamos el pedido a cocina para que lo preparen
+                        }
                     }
-                    break;
-                    case 2: {
-                        Producto productoElegido = eligeEntreProductos();
-                        pedido.eliminarProducto(productoElegido);
-                    }
-                    break;
-                    case 3: {
-                        pedido.mostrarCuenta();
-                    }
-                    break;
-                    case 4: {
-                        double cuenta = pedido.mostrarCuenta();
-                        System.out.println("La cuenta es: " + cuenta);
-                        pagarCuenta(cuenta);
-                        mandarPedidoACocina();
-                    }
-                }
-            } while (opcion != 4 && opcion != 0);
-        }
-        mostrarDespedida();
+                    // Si la opcion es 0, cancela el pedido y sale.
+                    // Si la opcion es 4, el pedido ya está en cocina y solo queda que la cocina prepare el pedido y se le entregue al cliente.
+                } while (opcionMesa != 4 && opcionMesa != 0);
+            }
+            // Repetimos atender a otra mesa, hasta que se pulse 0 (salir de la aplicación)
+        } while(opcionPrincipal != 0);
+        mostrarDespedida(); // Nos despedimos del usuario, dándole ánimos porque la hostelería es un trabajo duro
     }
 
+    /** Muestra el menú principal*/
     private static int mostrarMenuPrincipal() {
         final String MENSAJE = """
                 1.- Atender una nueva mesa
@@ -64,6 +72,7 @@ public class Main {
         return util.Utilidades.pideEntero(MENSAJE);
     }
 
+    /**Muestra el menú de atención a una mesa seleccionada*/
     private static int mostrarMenuMesa() {
         final String MENSAJE = """
                 1.- Añadir un nuevo producto.
@@ -76,11 +85,13 @@ public class Main {
         return util.Utilidades.pideEntero(MENSAJE);
     }
 
+    /** Pide y devuelve el número de una mesa */
     private static int pedirNumeroMesa() {
         final String MENSAJE = "Por favor, introduzca el número de la mesa a la que añadir el pedido: ";
         return util.Utilidades.pideEntero(MENSAJE);
     }
 
+    /** Muestra los productos que hay en el menú, y devuelve el producto seleccionado */
     private static Producto eligeEntreProductos() {
         final String MENSAJE = """
                 Indique el menú a comprar:
@@ -123,6 +134,7 @@ public class Main {
         return productoElegido;
     }
 
+    /** Entra a pagar la cuenta. No hay forma de salir de aquí hasta que se pague, porque el usuario no debe irse sin pagar */
     private static void pagarCuenta(double cuenta) {
         final String MENSAJE = "Por favor, introduzca el dinero: ";
         double dineroUsuario;
@@ -134,10 +146,12 @@ public class Main {
         JOptionPane.showMessageDialog(null, "El usuario ha pagado satisfactoriamente! El cambio es: " + util.Utilidades.formatoEuros(dineroUsuario - cuenta) );
     }
 
+    /** Aquí se mandaría el pedido a cocina, llamando a los metodos que creariamos para ello */
     private static void mandarPedidoACocina() {
         JOptionPane.showMessageDialog(null, "Enviado el pedido a cocina!");
     }
 
+    /** Nos despedimos del usuario, dándole ánimos porque tenemos que cuidar a nuestros empleados */
     private static void mostrarDespedida() {
         JOptionPane.showMessageDialog(null, "Gracias por trabajar con nosotros! Mañana más. Asegúrate de descansar! <3");
     }
