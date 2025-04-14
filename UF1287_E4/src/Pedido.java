@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -36,7 +35,6 @@ public class Pedido {
      * Muestra todos los productos y calcula el total de la cuenta que debera pagarse por este pedido
      */
     public double mostrarCuenta() {
-        DecimalFormat df = new DecimalFormat("0.00");
         double cuenta = 0;
         StringBuilder mensaje = new StringBuilder();
         mensaje.append("MESA: ").append(mesa).append("\n");

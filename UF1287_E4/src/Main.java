@@ -112,7 +112,7 @@ public class Main {
         } while(indiceProductoElegido < OPCION_MINIMA || indiceProductoElegido > OPCION_MAXIMA);
 
         switch(indiceProductoElegido) {
-            case 1:
+            case 1: // Pides el numero entero de menus, y dependiendo de si es el 1, 2, 3, 4 o 5, pues creas un MENU1 o MENU2...
                 productoElegido = Producto.MENU1;
                 break;
             case 2:
