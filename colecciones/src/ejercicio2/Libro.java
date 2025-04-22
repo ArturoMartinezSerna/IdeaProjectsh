@@ -1,6 +1,6 @@
 package ejercicio2;
 
-public class Libro {
+public class Libro implements Comparable<Libro>{
     private int id;
     private String titulo;
     private String autor;
@@ -69,5 +69,10 @@ public class Libro {
                 " ISBN='" + ISBN + '\'' +
                 " anioPublicacion=" + anioPublicacion +
                 " editorial='" + editorial + '\'';
+    }
+
+    @Override
+    public int compareTo(Libro o) {
+        return this.titulo.compareTo(o.titulo);
     }
 }

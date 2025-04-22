@@ -2,6 +2,7 @@ package ejercicio2;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
 
@@ -12,10 +13,22 @@ public class Main {
         do {
             opcionPrincipal = mostrarMenuPrincipal();
             switch (opcionPrincipal) {
-                case 1 -> aniadirLibro(libros);
-                case 2 -> eliminarLibro(libros);
-                case 3 -> modificarLibro(libros);
-                case 4 -> JOptionPane.showMessageDialog(null, "**** Libros en la estantería: ****\n" + informacionLibros(libros));
+                case 1 -> {
+                    aniadirLibro(libros);
+                    Collections.sort(libros);
+                }
+                case 2 -> {
+                    eliminarLibro(libros);
+                    Collections.sort(libros);
+                }
+                case 3 -> {
+                    modificarLibro(libros);
+                    Collections.sort(libros);
+                }
+                case 4 -> {
+                    JOptionPane.showMessageDialog(null, "**** Libros en la estantería: ****\n" + informacionLibros(libros));
+                    Collections.sort(libros);
+                }
             }
         } while(opcionPrincipal != 0);
     }
