@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Foto en Spring Boot</title>
+</head>
+<body>
+    <img th:src="@{images/loro.webp}" alt="imagen de un loro">
+
+    <!-- No funciona, necesitamos llamarlo con thymeLeaf -->
+    <img src="../static/images/loro.webp" alt="imagen de un 2o loro">
+</body>
+</html>

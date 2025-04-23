@@ -27,7 +27,6 @@ public class Main {
                 }
                 case 4 -> {
                     JOptionPane.showMessageDialog(null, "**** Libros en la estantería: ****\n" + informacionLibros(libros));
-                    Collections.sort(libros);
                 }
             }
         } while(opcionPrincipal != 0);
@@ -114,6 +113,7 @@ public class Main {
                 }
             }
             return null;
+
         }
 
         private static String informacionLibros(ArrayList<Libro> libros) {
