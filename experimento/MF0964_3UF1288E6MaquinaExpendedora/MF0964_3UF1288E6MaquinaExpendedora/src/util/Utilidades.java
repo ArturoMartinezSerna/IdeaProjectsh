@@ -6,14 +6,7 @@ import javax.swing.*;
 
 public class Utilidades {
 
-    public static String pideString(String texto) {
-        String output;
-
-        output = JOptionPane.showInputDialog(texto);
-
-        return output;
-    }
-
+    // Pide por pantalla un número entero hasta que se introduzca un número entero
     public static int pideInt(String texto) {
         int output = 0;
         boolean introduccionCorrecta;
@@ -30,6 +23,7 @@ public class Utilidades {
         return output;
     }
 
+    // Pide por pantalla un número double hasta que se introduzca un número double
     public static double pideDouble(String texto) {
         double output = 0;
         boolean introduccionCorrecta;
@@ -46,20 +40,14 @@ public class Utilidades {
         return output;
     }
 
+    // Muestra el texto por pantalla con una ventana emergente nueva
     public static void MostrarPorPantalla(String texto) {
         JOptionPane.showMessageDialog(null, texto);
     }
 
+    // Formatea, redondeando, el número introducido a dos decimales
     public static double formatearNumero(double numero) {
         return (int)(Math.round((numero)*100)) / 100.0;
     }
 
-//    public static Refresco pideRefresco() {
-//        Refresco[] valoresEnum = Refresco.values();
-//        int refrescoSeleccionado;
-//
-//        refrescoSeleccionado = JOptionPane.showOptionDialog(null, "Introduzca el refresco", "Seleccionando refresco", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, valoresEnum, valoresEnum[0]);
-//
-//        return valoresEnum[refrescoSeleccionado];
-//    }
 }

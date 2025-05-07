@@ -32,15 +32,19 @@ public class Main {
     static MaquinaExpendedora maquina = new MaquinaExpendedora();
 
     public static void main(String[] args) {
+        // Mensaje del menú principal
         final String MENU_PRINCIPAL = maquina.toStringRefrescos() + "0 -> Salir" + "\n\nIntroduzca refresco:";
+        // Opcion del refresco elegido
         int opcion;
 
+        // Repetimos la venta del producto
         do {
-            opcion = Utilidades.pideInt(MENU_PRINCIPAL);
-            if(opcion != 0)
-                maquina.venderRefresco(opcion - 1);
+            opcion = Utilidades.pideInt(MENU_PRINCIPAL); // Pedimos el refresco elegido por el usuario
+            if(opcion != 0) // Si no se sale del programa
+                maquina.venderRefresco(opcion - 1); // Se le vende el producto
         } while(opcion != 0);
 
+        // Al finalizar el programa, mostramos los productos vendidos.
         maquina.mostrarEstadisticas();
     }
 
