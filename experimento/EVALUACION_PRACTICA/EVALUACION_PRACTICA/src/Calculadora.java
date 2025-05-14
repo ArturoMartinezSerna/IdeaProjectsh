@@ -1,71 +1,83 @@
 import javax.swing.*;
 
 public class Calculadora {
+    final String MENU_PRINCIPAL = """
+                **** CALCULADORA ****
+                1.- Suma
+                2.- Resta
+                3.- Multiplicar
+                4.- Dividir
+                5.- Resto
+                6.- Exponencial
+                0.- Salir
+                
+                Seleccione una opción:
+                """;
+    double resultado; // Esta variable guarda el resultado que pone en la calculadora
 
     public Calculadora() {
+        resultado = 0;
     }
 
-    public void mostrarMenu() {
-
+    // Muestra el menú de opciones de la calculadora y devuelve la opción que representa la operacion realizada
+    public int mostrarMenu() {
+        return Validaciones.pideInt("El resultado actual es: " + resultado + "\n\n" + MENU_PRINCIPAL);
     }
 
-    public double suma() {
-        double numero1 = Validaciones.pideDouble("Introduce el primer número:");
-        double numero2 = Validaciones.pideDouble("Introduce el segundo número:");
+    // Ejecuta la suma de la calculadora
+    public void suma() {
+        double numero = Validaciones.pideDouble("Introduce el número a sumar:"); // Pedimos el número
 
-        JOptionPane.showMessageDialog(null, numero1 + " + " + numero2 + " = " + (numero1 + numero2));
-        return numero1 + numero2;
+        JOptionPane.showMessageDialog(null, resultado + " + " + numero + " = " + (resultado + numero)); // Mostramos el resultado de la operacion
+        resultado += numero; // Modificamos el resultado que se guarda en la calculadora
     }
 
-    public double resta() {
-        double numero1 = Validaciones.pideDouble("Introduce el primer número:");
-        double numero2 = Validaciones.pideDouble("Introduce el segundo número:");
+    // Ejecuta la resta de la calculadora
+    public void resta() {
+        double numero = Validaciones.pideDouble("Introduce el número a restar:"); // Pedimos el número
 
-        JOptionPane.showMessageDialog(null, numero1 + " - " + numero2 + " = " + (numero1 - numero2));
-        return numero1 - numero2;
+        JOptionPane.showMessageDialog(null, resultado + " - " + numero + " = " + (resultado - numero)); // Mostramos el resultado de la operacion
+        resultado -= numero; // Modificamos el resultado que se guarda en la calculadora
     }
 
-    public double multiplicacion() {
-        double numero1 = Validaciones.pideDouble("Introduce el primer número:");
-        double numero2 = Validaciones.pideDouble("Introduce el segundo número:");
+    // Ejecuta la multiplicacion de la calculadora
+    public void multiplicacion() {
+        double numero = Validaciones.pideDouble("Introduce el número a multiplicar:"); // Pedimos el número
 
-        JOptionPane.showMessageDialog(null, numero1 + " * " + numero2 + " = " + (numero1 * numero2));
-        return numero1 * numero2;
+        JOptionPane.showMessageDialog(null, resultado + " * " + numero + " = " + (resultado * numero)); // Mostramos el resultado de la operacion
+        resultado *= numero; // Modificamos el resultado que se guarda en la calculadora
     }
 
-    public double division() {
-        double numero1 = Validaciones.pideDouble("Introduce el primer número:");
-        double numero2 = Validaciones.pideDouble("Introduce el segundo número:");
+    // Ejecuta la division de la calculadora
+    public void division() {
+        double numero = Validaciones.pideDoubleNoEsCero("Introduce el número por el que dividir:"); // Pedimos el número
 
-        JOptionPane.showMessageDialog(null, numero1 + " / " + numero2 + " = " + (numero1 / numero2));
-        return numero1 / numero2;
+        JOptionPane.showMessageDialog(null, resultado + " / " + numero + " = " + (resultado / numero)); // Mostramos el resultado de la operacion
+        resultado /= numero; // Modificamos el resultado que se guarda en la calculadora
     }
 
-    public double resto() {
-        double numero1 = Validaciones.pideDouble("Introduce el primer número:");
-        double numero2 = Validaciones.pideDouble("Introduce el segundo número:");
+    // Ejecuta el resto en la calculadora
+    public void resto() {
+        double numero = Validaciones.pideDouble("Introduce el número por el que dividir " + resultado + " para calcular el resto:"); // Pedimos el número
 
-        JOptionPane.showMessageDialog(null, numero1 + " % " + numero2 + " = " + (numero1 % numero2));
-        return numero1 % numero2;
+        JOptionPane.showMessageDialog(null, resultado + " % " + numero + " = " + (resultado % numero)); // Mostramos el resultado de la operacion
+        resultado %= numero; // Modificamos el resultado que se guarda en la calculadora
     }
 
-    public double exponencial() {
-        double numero1 = Validaciones.pideDouble("Introduce el primer número:");
-        double numero2 = Validaciones.pideDouble("Introduce el segundo número:");
+    // Ejecuta la funcion exponencial de la calculadora
+    public void exponencial() {
+        double numero = Validaciones.pideDouble("Introduce el número por el que elevar " + resultado + ":"); // Pedimos el número
 
+        double elevacionTemporal = resultado == 0 ? 0: 1; // Si la base es 0, el resultado será cero. Si no, un número elevado a 0 es 1.
 
-        double resultado = numero1 == 0 ? 0: 1;
-
-        for(int i = 0; i < numero2; i++) {
-            resultado *= numero1;
+        for(int i = 0; i < numero; i++) {
+            elevacionTemporal *= resultado;
         }
-
-
-
-        JOptionPane.showMessageDialog(null, numero1 + " ^ " + numero2 + " = " + (resultado));
-        return resultado;
+        JOptionPane.showMessageDialog(null, resultado + " ^ " + numero + " = " + (elevacionTemporal)); // Mostramos el resultado de la operacion
+        resultado = elevacionTemporal; // Modificamos el resultado que se guarda en la calculadora
     }
 
+    // Muestra una despedida básica en una nueva ventana
     public void mostrarDespedida() {
         JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestra calculadora");
     }

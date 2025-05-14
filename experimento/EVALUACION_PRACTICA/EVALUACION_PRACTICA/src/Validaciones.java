@@ -28,4 +28,15 @@ public class Validaciones {
         } while(!isNumeroValido);
         return numero;
     }
+
+    public static double pideDoubleNoEsCero(String mensaje) {
+        double numero;
+        do {
+            numero = pideDouble(mensaje);
+            if(numero == 0) {
+                JOptionPane.showMessageDialog(null, "Por favor, introduzca un numero distinto de cero");
+            }
+        } while(numero == 0);
+        return numero;
+    }
 }
