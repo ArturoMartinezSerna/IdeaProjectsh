@@ -17,7 +17,7 @@ public class HelloController {
     }
 
     @GetMapping("/world")
-    public List<HelloResponse> sayHello2() {
+    public ArrayList<HelloResponse> sayHello2(@RequestParam(name = "name", defaultValue = "World")String name) {
         return List.of(new HelloResponse("Hello"), new HelloResponse("World!"));
     }
 }
